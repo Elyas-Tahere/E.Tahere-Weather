@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="See Weather Status">
+    <meta name="keywords" content="Weather, weather, E.t, e.t, elyas, Elyas, tahere">
+    <meta name="author" content="Elyas Tahere">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Weather</title>
+    <style>  
+        body{
+            margin: none;
+            padding: none;
+            background-color: #afafaf;
+            box-sizing: border-box  ;
+            font-family: sans-serif;
+        }
+
+        .col2{
+          background-color: white;
+          border-radius: 30px;
+
+        }
+
+        .nice{
+            background-image: url(picture/nice.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;    
+            border-radius: 30px;    
+            padding: 30px;    
+
+        }
+        .fc{
+          display: flex;
+
+        }
+       .forecast{
+        margin-right: auto;
+        background-color: #0009;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        height: 45px;
+       }
+       .current{
+        display: flex;
+        color: white;
+        background-color: #0009;
+        padding: 10px 15px;
+        border-radius: 10px;
+       }
+       .loc{
+        font-size: smaller;
+       }
+       .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 19%;
+        flex-direction: column;
+      }
+       .center img{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;   
+       }
+       .center h6,h3{
+        background-color: #0009;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px ;
+       }
+       
+       .center input{
+        background-color: #0009;
+        padding: 10px 60px;
+        position: relative;
+        border-radius: 30px;
+        border: none;
+       }
+       .center .search{
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 15px;
+        font-size: large;
+       }
+       .center input::placeholder{
+        color: rgba(255, 255, 255, 0.618);
+        margin-left: 111px;
+       }
+       .center input:focus{
+        background-color: #0009;
+        color: white;
+        font-size: large;
+        font-weight: bold;
+       }
+
+        .navbar{
+            border-radius: 10px;
+        }
+
+        .card1,.card2{
+            box-shadow:  0 0 10px black;
+            border-radius: 10px;
+        }
+
+        .line{
+            border-right: 5px solid #afafaf;
+        }
+
+        .card2 img{
+            border-radius: 10px;
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .carousel-caption{         
+          background-color: #0009;
+          border-radius: 10px;
+        }
+
+        .error{
+          background-color: #0009;
+          color:red;
+          margin-right: auto;
+          padding: 10px 15px;
+          border-radius: 10px;
+          margin-top: 10px;
+          display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <div class="container my-5">
+            <div class="row col2 p-3">
+                
+                <div class="col-xl-8">
+                    <div class="nice">
+
+                      <div class="fc">
+                        <div class="forecast"><h5>Forecast</h5></div>
+                        <div class="current">
+                          <span class="me-3 fs-2"><i class="fa-solid fa-location-dot"></i></span>
+                          <span>
+                            <span class="loc">Location</span><br>
+                            <span id="location">jalalabad, Afghanistan</span>
+                          </span>
+                        </div>
+                      </div>
+
+
+                      <div class="center">
+                        <div><img src="picture/mm.jpg" alt=""></div><br>
+                        <div><h6>Elyas Tahere </h6></div>
+                        <h3>The Only Weather Forcaste You Need</h3>
+                        <div class="input-group">
+                          <span class="search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                          <input style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;" type="text" class="form-control " placeholder="Enter Location">
+                          <button class="btn btn-warning">Searh</button>
+                        </div>
+                        <div class="error">City name is invalid!</div>
+
+                      </div> 
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-xl-4">
+
+                    <!-- navebar -->
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container">
+                          <a class="navbar-brand" href="weather.html">Weather</a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                              <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="https://www.youtube.com/results?search_query=weather+news">News</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="https://www.google.com/maps">Map</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="https://zoom.earth/">Satellite</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </nav>
+
+
+
+                      <!-- heading -->
+                       <h1 class="fw-bold my-2   fst-italic">Today</h1>
+
+
+                       <!-- card1 -->
+                        <div class="card1 p-4">
+                            <div class="row">
+                                <div class="col-lg-5 line">
+                                    <h1 class="fw-bold my-3 fst-italic" id="celsius">32°C</h1>
+                                    <p class="fs-2"><img id="icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt=""></p>
+                                    <p id="date"></p>
+                                </div>
+                                
+                                <div class="col-lg-7">
+                                    <ul class="list-unstyled mt-4 ms-3">
+                                        <li class="mb-2 text-black-50" id="realFeel">RealFeel : </li>
+                                        <li class="mb-2 text-black-50" id="humidity">Humidity : </li>
+                                        <li class="mb-2 text-black-50" id="cloud">Sky : </li>
+                                        <li class="mb-2 text-black-50" id="visibility">Visibility : </li>
+                                        <li class="mb-2 text-black-50" id="wind">Wind Speed : </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card2 -->
+                        <h4 class="fw-bold mt-4 mb-3">Daily</h4>
+                        <div class="card2">
+                            <div id="carouselExampleCaptions" class="carousel slide">
+                                <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="picture/sunnyt.jfif" class="d-block" alt="...">
+                                    <div class="carousel-caption d-none d-md-block fw-bold">
+                                      <h5>28'c</h5>
+                                      <p>Rainy</p>
+                                      <p>Tue 28, July' 2024</p>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="picture/www.jfif" class="d-block" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>28'c</h5>
+                                      <p>Rainy</p>
+                                      <p>Tue 28, July' 2024</p>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="picture/wwww.jfif" class="d-block" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>28'c</h5>
+                                      <p>Rainy</p>
+                                      <p>Tue 28, July' 2024</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+      let city =document.querySelector('#location');
+      let input =document.querySelector('input');
+      let search =document.querySelector('button');
+      let celsius =document.querySelector('#celsius');
+      let realfeel =document.querySelector('#realFeel');
+      let humidity =document.querySelector('#humidity');
+      let wind =document.querySelector('#wind');
+      let cloud =document.querySelector('#cloud');
+      let visibility =document.querySelector('#visibility');
+      let date = document.querySelector('#date');
+      date.innerText = new Date().toLocaleDateString();
+      let error = document.querySelector('.error');
+
+
+
+
+
+      function loadweather(location){
+
+         let http = new XMLHttpRequest();
+
+         http.onreadystatechange = function(location){
+          if(this.readyState == 4 && this.status == 200){
+
+         let record = JSON.parse(this.responseText)
+        
+         city.innerText =record.name+','+ record.sys.country;
+         celsius.innerText =Math.round(record.main.temp-273.15)+'°C';
+         realfeel.innerText += Math.round(record.main.feels_like-273.15)+'°C';
+         humidity.innerText += Math.round(record.main.humidity)+'%RH';
+         visibility.innerText += Math.round(record.visibility);
+         let description = record.weather[0].description;
+         cloud.innerText += description;
+         wind.innerText += record.wind.speed+'km/h';
+
+
+         let icon = document.querySelector('#icon');
+         if(description == 'clear sky'){
+          icon.src = "weathericons/clearsky.png"
+         }
+         else if(description == 'few clouds'){
+          icon.src = 'weathericons/few cloud.png'
+         }
+         else if(description == 'scattered clouds'){
+          icon.src = 'weathericons/scarrted.png'
+         }
+         else if(description == 'broken clouds'){
+          icon.src = 'weathericons/broken.png'
+         }
+         else if(description == 'shower rain'){
+          icon.src = 'weathericons/shower.png'
+         }
+         else if(description == 'rain'){
+          icon.src = 'weathericons/rain.png'
+         }
+         else if(description == 'thunderstorm'){
+          icon.src = 'weathericons/thunder.png'
+         }
+         else if(description == 'snow'){
+          icon.src = 'weathericons/snow.png'
+         }
+         else if(description == 'mist'){
+          icon.src = 'weathericons/mist.png'
+         }
+         
+         error.style.display = 'none'
+
+         }else if(this.status == 404){
+          error.style.display = 'block'
+         }
+       }
+
+       http.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q='+location+'&appid=8553b7cae4a19b3cb5a9864a8c2bf6f2', true );
+
+       http.send()
+
+      };
+
+      search.addEventListener('click', function(){
+        let value = input.value; 
+        if(value == ""){
+          alert('Enter city name');
+
+        }else{
+        //  window.location.reload();
+          loadweather(value);
+          input.value ="";
+        }
+      })
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
